@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>SAE-AKGEC</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+		
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+
+	<body>
+
+		<div class="wrapper">
+			<div class="inner">
+				<div class="image-holder">
+					<img src="images/Group 4.png" alt="">
+				</div>
+
+				<div class="scroll-bg">
+					<div class="scroll-div">
+						<div class="scroll-object">
+				<form action="/sign_up" method="post">
+					<h3>Register Here</h3>
+
+					<div class="form-holder">
+						<select name="team" id="team" class="form-control">
+							<option value="00">Team Strength</option>
+							<option value="01">1 Member</option>
+							<option value="02">2 Member</option>
+							<option value="03">5 Member</option>
+						</select>
+						<i class="zmdi zmdi-chevron-down"></i>
+					</div><br>
+
+					<div class="form-row">
+						<input type="text" class="form-control" id="teamname" placeholder=" Team Name">
+					</div>
+
+				    <div class="mem1" id="mem1" >
+					<div class="form-row">
+						<input type="text" class="form-control" id="teamleadername" placeholder=" Leader Name" required />
+					</div>
+					<div class="form-row"><input type="text" class="form-control" id="email" placeholder=" Leader Mail" pattern=".+@gmail\.com|.+@akgec\.ac\.in" required />
+					</div>
+					<div class="form-row">
+						<input type="text" class="form-control" id="phone_no" placeholder=" Leader Phone No." onkeypress=" onlyNumberKey(event)" minlength="10" maxlength="10" pattern="[789][0-9]{9}"  required />
+					</div>
+					</div>
+
+
+					<div  class="mem2" id="mem2">
+					<div class="form-row">
+						<input type="text" class="form-control" id="mem21" placeholder=" Member 2" required />
+					</div>
+					<div class="form-row"><input type="text" id="email21" class="form-control" placeholder=" Member 2 Mail" pattern=".+@gmail\.com|.+@akgec\.ac\.in" required />
+					</div>
+					<div class="form-row">
+						<input type="text" class="form-control" id="phone_no21" placeholder=" Member 2 Phone No." onkeypress=" onlyNumberKey(event)" minlength="10" maxlength="10" pattern="[789][0-9]{9}"  required />
+					</div>
+					</div>
+
+					
+                    <div class="mem3"  id="mem3">
+					<div class="form-row">
+						<input type="text" class="form-control" id="mem31" placeholder=" Member 3" required />
+					</div>
+					<div class="form-row"><input type="text"  id="email31" class="form-control" placeholder=" Member 3 Mail" pattern=".+@gmail\.com|.+@akgec\.ac\.in" required />
+					</div>
+					<div class="form-row">
+						<input type="text" class="form-control" id="phone_no31" placeholder=" Member 3 Phone No." onkeypress=" onlyNumberKey(event)" minlength="10" maxlength="10" pattern="[789][0-9]{9}"  required />
+					</div>
+					</div>
+
+					<div  class="mem4" id="mem4">
+					<div class="form-row">
+						<input type="text" class="form-control"  id="mem41" placeholder=" Member 4" required />
+					</div>
+					<div class="form-row"><input type="text" id="email41" class="form-control" placeholder=" Member 4 Mail" pattern=".+@gmail\.com|.+@akgec\.ac\.in" required />
+					</div>
+					<div class="form-row">
+						<input type="text" class="form-control"  id="phone_no41" placeholder=" Member 4 Phone No."onkeypress=" onlyNumberKey(event)" minlength="10" maxlength="10" pattern="[789][0-9]{9}"  required />
+					</div>
+					</div>
+
+					<div class="mem5" id="mem5">
+					<div class="form-row">
+						<input type="text" class="form-control" id="mem51" placeholder=" Member 5" required />
+					</div>
+					<div class="form-row"><input type="text" id="email51" class="form-control" placeholder=" Member 5 Mail" pattern=".+@gmail\.com|.+@akgec\.ac\.in"  >
+					</div>
+					<div class="form-row">
+						<input type="text" class="form-control" id="phone_no51" onkeypress=" onlyNumberKey(event)" minlength="10" maxlength="10" pattern="[789][0-9]{9}"  placeholder=" Member 5 Phone No." required />
+					</div>
+					</div>
+
+					<button>
+						<i class="zmdi zmdi-long-arrow-right">
+						<input type="button" name="register" class="register" value="Register" id="register" onclick="submit()"></i>
+					</button>
+				</form>
+						</div>
+						</div>
+						</div>
+
+	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script>
+	
+		jQuery.validator.setDefaults({
+		  	debug: true,
+		  	success:  function(label){
+        		label.attr('id', 'valid');
+   		 	},
+		});
+		$( "#myform" ).validate({
+		  	rules: {
+			    your_email: {
+			      	required: true,
+			      	email: true
+			    },
+			    password: "required",
+		    	comfirm_password: {
+		      		equalTo: "#password"
+		    	}
+		  	},
+		  	messages: {
+		  		username: {
+		  			required: "Please enter an username"
+		  		},
+		  		your_email: {
+		  			required: "Please provide an email"
+		  		},
+		  		
+		  	}
+		});
+
+		function submit(){
+			const form = document.getElementById('myform');
+			form.submit();
+		}
+
+		 function submit(){
+		 	let http = new XMLHttpRequest();
+		 	http.open("POST", "http://localhost:3000/register", true);
+
+		 	http.setRequestHeader('Accept', 'application/json');
+		 	http.setRequestHeader('Content-Type', 'application/json');
+
+		 	http.onreadystatechange = function() {
+		 		if (http.readyState == 4 && http.status == 200){
+		 			alert(http.responseText);
+		 		}
+		 		else{
+		 			alert(http.response);
+		 		}
+		 	}
+
+		 	const data = `{
+		 		"teamname": "test",
+				 "teamleadername": "testing test",
+		 		"email": "test@abc.com",
+		 		"phone_no": 9123456789,
+				 "mem2 : test",
+				 "email21": "test@abc.com",
+		 		"phone_no21": 9123456789,
+				 "mem3 : test",
+				 "email31": "test@abc.com",
+		 		"phone_no31": 9123456789,
+				 "mem4 : test",
+				 "email31": "test@abc.com",
+		 		"phone_no31": 9123456789,
+				 "mem4 : test",
+				 "email41": "test@abc.com",
+		 		"phone_no41": 9123456789,
+				 "mem5 : test",
+				 "email51": "test@abc.com",
+		 		"phone_no51": 9123456789,
+
+		 		
+		 	}`;
+
+		 	http.send(data);
+		 }
+	</script>
+<!-- 
+	<script>
+
+		$("#register").click(function(){
+
+			var teamname = $("#teamname").val();
+			var teamnleaderame = $("#teamleadername").val();
+			var email = $("#email").val();
+			var phone_no = $("#phone_no").val();
+			var mem21 = $("#mem21").val();
+			var email21 = $("#email21").val();
+			var phone_no21 = $("#phone_no21").val();
+			var mem31 = $("#mem31").val();
+			var email31 = $("#email31").val();
+			var phone_no31 = $("#phone_no31").val();
+			var mem41 = $("#mem41").val();
+			var email41 = $("#email41").val();
+			var phone_no41 = $("#phone_no41").val();
+			var mem51 = $("#mem51").val();
+			var email51 = $("#email51").val();
+			var phone_no51 = $("#phone_no51").val();
+			
+			if(teamname == '' || teamleadername == '' ||  email == '' || phone_no == '' || mem21 == '' || phone_no21 == '' || email21 == '' || mem31 == '' || email31 == '' || phone_no31 == '' || mem41 == '' || email41 == '' || phone_no41 == '' || mem51 == '' || email51 == '' || phone_no51 == ''){
+				
+				swal("Fields empty!", "Please enter the missing fields", "warning");
+			}
+			else{
+
+				
+				swal("Success!", "You are successfully registered!", "success");
+			}
+		})
+	</script> -->
+
+
+	<script>
+	$(document).ready(function() {
+		$('#button').hide();
+		$("#team").change(function() {
+			var val = $(this).val();      
+			if (val == '00') {
+        $('#teamname').show();
+        $('#mem1').hide();
+        $('#mem2').hide();
+        $('#mem3').hide();
+        $('#mem4').hide();
+        $('#mem5').hide();
+			} 
+
+			else if (val == '01') {
+				$('#teamname').show();
+        $('#mem1').show();
+        $('#mem2').hide();
+        $('#mem3').hide();
+        $('#mem4').hide();
+        $('#mem5').hide();
+			} 
+
+			else if (val == '02') {
+				$('#teamname').show();
+        $('#mem1').show();
+        $('#mem2').show();
+        $('#mem3').hide();
+        $('#mem4').hide();
+        $('#mem5').hide();
+			} 
+
+			else if (val == '03') {
+				$('#teamname').show();
+        $('#mem1').show();
+        $('#mem2').show();
+        $('#mem3').show();
+        $('#mem4').show();
+        $('#mem5').show();
+			} 
+			
+		}).change();
+	});</script>
+				
+			</div>
+		</div>
+
+		<script src="js/jquery-3.3.1.min.js"></script>
+		<script src="js/main.js"></script>
+	</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
